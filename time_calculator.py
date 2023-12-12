@@ -27,25 +27,20 @@ def add_time(start, duration, weekday=None):
         duration_minutes -= 60
 
     if start_minutes + duration_minutes > 59:
-        #print(duration_hours)
         new_minutes = (start_minutes + duration_minutes) - 60
         duration_hours += 1
-        #print(duration_hours)
     else:
         new_minutes = start_minutes + duration_minutes
     
     # Change hours to 24 system
     if start_am_pm == "PM":
         start_hours += 12
-        #print(start_hours)
 
     # Hours and days(if needed) calculation
     new_hours = start_hours + duration_hours
-    #print(new_hours)
     while new_hours >= 24:
         day_count += 1
         new_hours -= 24
-        #print(day_count)
 
     # Changes hours to 12 system and AM/PM verification
     if new_hours >= 12:
